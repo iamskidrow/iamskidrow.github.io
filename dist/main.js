@@ -81,26 +81,20 @@ function populateQualifications() {
         const li = document.createElement('li');
 
         if (typeof qualification === 'string') {
-            // Simple text qualification
             li.textContent = qualification;
         } else if (qualification.university) {
-            // Education qualification with university link
-            // Create text node for prefix
             li.appendChild(document.createTextNode(qualification.prefix));
 
-            // Create link for university name
             const link = document.createElement('a');
             link.href = qualification.link;
             link.target = "_blank";
             link.textContent = qualification.university;
             li.appendChild(link);
 
-            // Add suffix text if exists
             if (qualification.suffix) {
                 li.appendChild(document.createTextNode(qualification.suffix));
             }
         } else {
-            // Backward compatibility for old format
             const link = document.createElement('a');
             link.href = qualification.link;
             link.target = "_blank";

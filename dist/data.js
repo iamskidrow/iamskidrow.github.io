@@ -1,4 +1,3 @@
-// Data structure for the website content
 const websiteData = {
     // Basic information
     basics: {
@@ -104,7 +103,7 @@ const websiteData = {
             issuer: "Sketch Me Global",
             year: "2022",
             description: "Conducted 20+ web application penetration tests, identifying critical security vulnerabilities such as SQLi, RCE, XSS, and IDOR. Automated security testing workflows, reducing manual effort by 40%.",
-            certificateImage: "assets/internship.jpg", // Replace with actual image path
+            certificateImage: "assets/internship.jpg",
             certificateUrl: "#",
             skills: ["Penetration Testing", "Application Security", "Security Automation", "Vulnerability Assessment"]
         },
@@ -113,13 +112,13 @@ const websiteData = {
             issuer: "freeCodeCamp",
             year: "2020",
             description: "Completed the Responsive Web Design certification covering HTML5, CSS3, Flexbox, CSS Grid, and responsive design principles.",
-            certificateImage: "assets/fcc_web.png", // Replace with actual image path
+            certificateImage: "assets/fcc_web.png",
             certificateUrl: "https://www.freecodecamp.org/certification/iamskidrow/responsive-web-design",
             skills: ["HTML5", "CSS3", "Responsive Design", "Flexbox", "CSS Grid"]
         }
     ],
 
-    // Work experience (formal employment)
+    // Work experience
     experience: [
         {
             role: "🔒 Cybersecurity Engineer - Internship",
@@ -135,7 +134,7 @@ const websiteData = {
         }
     ],
 
-    // Security testing & achievements (consolidated)
+    // Security testing & achievements
     securityWork: [
         {
             company: "Paytm",
