@@ -60,14 +60,103 @@ function populateBasicInfo() {
     });
 }
 
-// Populate social links
+// Resume modal
+function createResumeModal() {
+    // Create the modal container
+    const modal = document.createElement('div');
+    modal.className = 'resume-modal';
+    modal.id = 'resumeModal';
+
+    // Create the modal content
+    const modalContent = document.createElement('div');
+    modalContent.className = 'resume-modal-content';
+
+    // Create header with title and close button
+    const modalHeader = document.createElement('div');
+    modalHeader.className = 'resume-modal-header';
+
+    const modalTitle = document.createElement('h3');
+    modalTitle.textContent = 'Resume - Ayon Chakraborty';
+
+    const closeButton = document.createElement('button');
+    closeButton.innerHTML = '&times;';
+    closeButton.className = 'resume-modal-close';
+    closeButton.onclick = closeResumeModal;
+
+    modalHeader.appendChild(modalTitle);
+    modalHeader.appendChild(closeButton);
+
+    // Create iframe to display the PDF
+    const iframe = document.createElement('iframe');
+    iframe.src = 'assets/resume.pdf';
+    iframe.className = 'resume-modal-iframe';
+    iframe.title = 'Resume PDF';
+
+    // Create download button
+    const downloadButton = document.createElement('a');
+    downloadButton.href = 'assets/resume.pdf';
+    downloadButton.download = 'Ayon_Chakraborty_Resume.pdf';
+    downloadButton.className = 'resume-modal-download';
+    downloadButton.innerHTML = '<i class="fas fa-download"></i> Download Resume';
+
+    // Assemble the modal
+    modalContent.appendChild(modalHeader);
+    modalContent.appendChild(iframe);
+    modalContent.appendChild(downloadButton);
+    modal.appendChild(modalContent);
+
+    // Add to document body
+    document.body.appendChild(modal);
+
+    // Show the modal with animation
+    setTimeout(() => {
+        modal.classList.add('active');
+    }, 10);
+
+    // Prevent scrolling of the background content
+    document.body.style.overflow = 'hidden';
+}
+
+// Function to close the resume modal
+function closeResumeModal() {
+    const modal = document.getElementById('resumeModal');
+    if (modal) {
+        modal.classList.remove('active');
+
+        // Remove from DOM after animation completes
+        setTimeout(() => {
+            document.body.removeChild(modal);
+            // Re-enable scrolling
+            document.body.style.overflow = '';
+        }, 300);
+    }
+}
+
+// Close the modal if user clicks outside the content
+window.addEventListener('click', function (event) {
+    const modal = document.getElementById('resumeModal');
+    if (modal && event.target === modal) {
+        closeResumeModal();
+    }
+});
+
+// Populate Social Buttons
 function populateSocials() {
     const socialsContainer = document.getElementById('socials--list');
 
     websiteData.socials.forEach(social => {
         const socialLink = document.createElement('a');
-        socialLink.href = social.url;
-        socialLink.target = "_blank";
+
+        if (social.name === "Download Resume") {
+            // For resume link, set href to javascript:void(0) and add click event
+            socialLink.href = "javascript:void(0)";
+            socialLink.addEventListener('click', createResumeModal);
+        } else {
+            // Normal behavior for other social links
+            socialLink.href = social.url;
+            socialLink.target = "_blank";
+        }
+
         socialLink.innerHTML = `<i class="${social.icon}"></i> ${social.name}`;
         socialsContainer.appendChild(socialLink);
     });
@@ -105,7 +194,6 @@ function populateQualifications() {
         qualificationsContainer.appendChild(li);
     });
 }
-
 
 // Populate tech stack
 function populateTechStack() {

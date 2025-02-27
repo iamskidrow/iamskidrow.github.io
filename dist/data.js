@@ -151,7 +151,7 @@ const websiteData = {
             company: "Issuu",
             year: "2018",
             description: "Reported XSS and Open Redirect on <a href='https://issuu.com/'>Issuu</a>'s core domain.",
-            certificateImage: "/api/placeholder/400/300",
+            certificateImage: "assets/issuu.png",
             certificateAlt: "Issuu Hall of Fame",
             achievements: [
                 {text: "Received T-Shirt & goodies", icon: "🎁"},
