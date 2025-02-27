@@ -196,7 +196,7 @@ const websiteData = {
         {
             title: "🎓 Unione - Comprehensive University Management System",
             url: "https://github.com/iamskidrow/unione",
-            description: "Built a secure university management system with authentication, role-based access, and encryption, protecting against SQL Injection and XSS. Earned Outstanding grade and university-wide adoption."
+            description: "Built a secure university management system with authentication, role-based access, and encryption, protecting against Arbitrary Code or Command Injections. Earned Outstanding grade and university-wide adoption."
         },
         {
             title: "🌐 TenderPoint - Centralized Tender Management System",
