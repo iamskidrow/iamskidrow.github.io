@@ -17,7 +17,7 @@ const websiteData = {
     socials: [
         {
             name: "Youtube",
-            url: "//youtube.com/@iamskidrow/",
+            url: "//youtube.com/@ayon1337/",
             icon: "fab fa-youtube"
         },
         {
